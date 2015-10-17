@@ -1,0 +1,30 @@
+{
+  "name": "random-bits",
+  "version": "1.0.0",
+  "description": "JS implementation of java.lang.random plus bit shift operations",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --recursive"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/project-awesome/pa-random-bits.git"
+  },
+  "keywords": [
+    "random",
+    "bits",
+    "ucsb"
+  ],
+  "author": "Emilie Menard Barnard and Phill Conrad",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/project-awesome/pa-random-bits/issues"
+  },
+  "homepage": "https://github.com/project-awesome/project-awesome#readme",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "chai": "^3.2.0",
+    "mocha": "^2.2.5"
+  }
+}
