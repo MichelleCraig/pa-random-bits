@@ -67,6 +67,24 @@ describe('#random',function() {
 
 		 });
 
+	 describe("randBool",function() {
+			 var rs;
+
+			  beforeEach(function() {
+					  rs = new random.random(0xABCD1234);					  
+				 });
+			  
+			  it('should have a randBool method',function() {
+					  expect(rs.randBool).is.a("function");
+				  });
+
+			  it('should return boolean values',function() { 
+					  expect(rs.randBool()).is.a("boolean");
+				  });
+
+
+		 });
+
 
     });	
 

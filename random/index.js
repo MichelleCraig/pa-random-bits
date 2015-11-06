@@ -96,6 +96,10 @@ with a contract similar to that of the Random object in Java SE 7
 	  return result; 
    };
 
+   this.randBool = function() {
+	   return this.nextIntRange(2)==0;
+   };
+
     
 };
 
