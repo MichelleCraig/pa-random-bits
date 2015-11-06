@@ -32,8 +32,8 @@ describe('#random',function() {
 	     expect(random.determineSeed("10")).to.equal(16);
 	 });
 
-     it('should have a determineSeed method that if given bad input chooses a random int', function() {
-	     expect(random.determineSeed("bar")).to.be.a("number");
+     it('should throw an error if you give determineSeed a bad parameter', function() {
+		 expect(function() {random.determineSeed("xxx");}).to.throw("Invalid Parameter to determineSeed");
 	 });
 
      it('should have a determineSeed method that returns a random when no parameter is used',
@@ -46,61 +46,31 @@ describe('#random',function() {
 	 });
 
 
+	 describe("randIntBetweenInclusive",function() {
+			 var rs;
+
+			  beforeEach(function() {
+					  rs = new random.random(0xABCD1234);					  
+				 });
+			  
+			  it('should have a randIntBetweenInclusive function',function() {
+					  expect(rs.randIntBetweenInclusive).is.a("function");
+				  });
+
+
+			  it('should return numeric values in the right range',function() { 
+                     expect(rs.randIntBetweenInclusive(4,9)).is.a("number");
+                     expect(rs.randIntBetweenInclusive(4,9) >=4).is.true;
+                     expect(rs.randIntBetweenInclusive(4,9) <=9).is.true;
+				  });
+
+
+		 });
+
+
     });	
 
    
-
-
-// Mocha cheatsheet
-/*
-describe('test suite', function () {
-  beforeEach(function() { 
-  	// ...
-  });
-  afterEach(function() { 
-  	// ...
-  });
-
-  before(function() { 
-  	// ...
-  });
-  after(function() { 
-  	// ...
-  });
-
-  it('a basic test', function() { 
-  	// ...
-  });
-
-  it('a test with a promise', function() {
-    return somePromiseObject; });
-
-  it('an asynchronous test', function(next) {
-    if (success) { next(); } else { next(error); }
-  });
-
-  xit('use "xit" for pending tests', function() { 
-  	// ...
-  });
-});
-*/
-
-// Chai cheatsheet
-/*
-expect(3).to.eql(2);
-
-expect(obj).to.be.a('string');
-expect(obj).to.be.null;
-expect(obj).to.be.true;
-expect(obj).to.be.false;
-expect(obj).to.be.undefined;
-
-expect(list).to.include("item");
-expect(list).to.have.length(3);
-expect(list).to.have.length.gt(0);
-*/
-
-
 
 
 

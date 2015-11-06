@@ -88,12 +88,19 @@ with a contract similar to that of the Random object in Java SE 7
 	        someArray[j]=temp;
 	    }
     };
+
+   this.randIntBetweenInclusive = function(min, max) {
+	  var expression = max-min + 1;
+	  var randomResult = this.nextIntRange(expression);
+	  var result = min + randomResult;
+	  return result; 
+   };
+
     
 };
 
-module.exports.randIntBetweenInclusive = function(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-};
+
+
 
 
 
@@ -103,12 +110,15 @@ module.exports.determineSeed = function(rawTextSeed) {
     // or if that is not possible, return a random seed that is a
     // legit positive integer between 0 and 2^32-1.
     
+	if (rawTextSeed===undefined) {
+	   return Math.floor(Math.random() * (0xFFFFFFFF));
+	}
     var seedToReturn = parseInt(rawTextSeed,16);
 
     // Use the alternative if the seed passed in was not a legit number
-    if (isNaN(seedToReturn))
-	return module.exports.randIntBetweenInclusive(0,0xFFFFFFFF);
-
+    if (isNaN(seedToReturn)) {
+		throw new Error("Invalid Parameter to determineSeed");
+	}
     return seedToReturn;
 }
 
